@@ -76,7 +76,6 @@ const useOrderEffert = (shopId, showToast) => {
         notEmptyProductList[i] = product
       }
     }
-    console.log(notEmptyProductList)
     return notEmptyProductList
   })
 
@@ -115,7 +114,7 @@ const useOrderEffert = (shopId, showToast) => {
       })
       if (result?.errno === 0) {
         store.commit('cleanCartProducts', { shopId })
-        router.push({ name: 'Home' })
+        router.push({ name: 'OrderList' })
       }
     } catch (e) {
       showToast('请求失败')

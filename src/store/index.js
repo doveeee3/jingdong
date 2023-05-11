@@ -43,7 +43,7 @@ export default createStore({
       shopInfo.shopName = shopName
       shopInfo.productList[productId] = product
       state.cartList[shopId] = shopInfo
-      console.log(shopInfo)
+      console.log(state.cartList)
       setLocalCartList(state)
     },
     changeCartItemChecked(state, payload) {
