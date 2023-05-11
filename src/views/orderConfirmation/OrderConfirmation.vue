@@ -157,7 +157,7 @@ export default {
 
   &__header {
     position: relative;
-    padding-top: .26rem;
+    padding-top: .2rem;
     line-height: .24rem;
     color: #FFF;
     text-align: center;

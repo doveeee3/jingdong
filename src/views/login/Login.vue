@@ -96,11 +96,12 @@ export default {
     margin: 0 .4rem .16rem .4rem;
     padding: 0 .16rem;
     &__content {
+      margin-top: .13rem;
       border: none;
       outline: none;
       font-size: .16rem;
       color: $content-notice-fontcolor;
-      line-height: .48rem;
+      line-height: .22rem;
       background: none;
       &::placeholder {
         color: $content-notice-fontcolor;

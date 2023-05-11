@@ -24,9 +24,9 @@
           </p>
         </div>
         <div class="product__number">
-          <span class="product__number__minus" @click="() => { changeItemToCart(item, -1) }">-</span>
+          <span class="product__number__minus iconfont" @click="() => { changeItemToCart(item, -1) }">&#xe66d;</span>
           {{ item.count || 0 }}
-          <span class="product__number__plus" @click="() => { changeItemToCart(item, 1) }">+</span>
+          <span class="product__number__plus iconfont" @click="() => { changeItemToCart(item, 1) }">&#xe667;</span>
         </div>
       </div>
     </div>
@@ -38,10 +38,7 @@
       <div class="check__info">
         总计：<span class="check__info__price">&yen;{{ price }}</span>
       </div>
-      <div class="check__btn"
-        @click="$router.push({ path: `/orderConfirmation/${shopId}` })"
-        v-if="total>0"
-      >
+      <div class="check__btn" @click="$router.push({ path: `/orderConfirmation/${shopId}` })" v-if="total > 0">
         去结算
       </div>
     </div>
@@ -128,7 +125,7 @@ const useCartEffect = (shopId) => {
 }
 export default {
   name: 'CartFooter',
-  setup () {
+  setup() {
     const route = useRoute()
     const shopId = route.params.id
     const showChart = ref(false)
@@ -314,29 +311,20 @@ export default {
     .product__number {
       position: absolute;
       right: 0;
-      bottom: 0.12rem;
-
-      &__minus,
-      &__plus {
-        display: inline-block;
-        width: 0.2rem;
-        height: 0.2rem;
-        line-height: 0.16rem;
-        border-radius: 50%;
-        font-size: 0.2rem;
-        text-align: center;
-      }
+      bottom: .12rem;
 
       &__minus {
-        border: 0.01rem solid $medium-fontColor;
+        position: relative;
+        top: .01rem;
         color: $medium-fontColor;
-        margin-right: 0.05rem;
+        margin-right: .05rem;
       }
 
       &__plus {
-        background: $btn-bgColor;
-        color: $bgColor;
-        margin-left: 0.05rem;
+        position: relative;
+        top: .01rem;
+        color: $btn-bgColor;
+        margin-left: .05rem;
       }
     }
   }
