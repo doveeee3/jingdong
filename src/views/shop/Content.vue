@@ -26,11 +26,11 @@
           </p>
         </div>
         <div class="product__number">
-          <span class="product__number__minus" @click="()=>{changeItemToCart(shopId, item._id, item, -1)}">-</span>
-            {{cartList?.[shopId]?.[item._id]?.count || 0}}
+          <span class="product__number__minus" @click="()=>{changeItemToCart(shopId, item._id, item, -1, shopName)}">-</span>
+          {{cartList?.[shopId]?.productList?.[item._id]?.count || 0}}
           <span
             class="product__number__plus"
-            @click="()=>{ changeItemToCart(shopId, item._id, item, 1) }"
+            @click="()=>{ changeItemToCart(shopId, item._id, item, 1, shopName) }"
           >+</span>
         </div>
       </div>
@@ -80,16 +80,18 @@ const useCurrentListEffect = (currentTab, shopId) => {
 const useCartEffect = () => {
   const store = useStore()
   const cartList = store.state.cartList
-  const changeItemToCart = (shopId, productId, productInfo, num) => {
+  const changeItemToCart = (shopId, productId, productInfo, num, shopName) => {
     store.commit('changeItemToCart', {
-      shopId, productId, productInfo, num
+      shopId, productId, productInfo, num, shopName
     })
   }
+
   return { cartList, changeItemToCart }
 }
 
 export default {
   name: 'Content',
+  props: ['shopName'],
   setup () {
     const route = useRoute()
     const shopId = route.params.id
