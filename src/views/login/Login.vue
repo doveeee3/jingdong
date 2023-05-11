@@ -119,7 +119,7 @@ export default {
     text-align: center;
   }
   &__login-link {
-    font-size: 14px;
+    font-size: .14rem;
     color: $content-notice-fontcolor;
     text-align: center;
   }

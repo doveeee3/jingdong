@@ -201,7 +201,7 @@ export default {
 
   &__info {
     flex: 1;
-    font-size: 12px;
+    font-size: .12rem;
     color: #333333;
 
     &__price {
@@ -227,7 +227,7 @@ export default {
   &__header {
     display: flex;
     line-height: 0.52rem;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: .01rem solid #f1f1f1;
     font-size: 0.14rem;
     color: #333;
     justify-content: space-between;

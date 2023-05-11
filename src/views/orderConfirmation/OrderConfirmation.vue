@@ -177,7 +177,7 @@ export default {
     bottom: 0;
     height: 1.11rem;
     background-color: #FFF;
-    border-radius: 4px;
+    border-radius: .04rem;
 
     &__title {
       padding: .16rem 0 .14rem .16rem;
@@ -301,9 +301,9 @@ export default {
 
   &__price {
     flex: 1;
-    font-size: 14px;
+    font-size: .14rem;
     color: #333333;
-    line-height: 20px;
+    line-height: .2rem;
     padding: .14rem 0 .15rem .24rem;
   }
 
@@ -311,7 +311,7 @@ export default {
     width: .98rem;
     background: #4FB0F9;
     text-align: center;
-    font-size: 14px;
+    font-size: .14rem;
     color: #FFFFFF;
   }
 }
@@ -357,8 +357,8 @@ export default {
       flex: 1;
       width: .8rem;
       line-height: .32rem;
-      border: 1px solid #4FB0F9;
-      border-radius: 16px;
+      border: .01rem solid #4FB0F9;
+      border-radius: .16rem;
 
       &--first {
         margin-right: .12rem;
