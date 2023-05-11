@@ -40,9 +40,19 @@ const routes = [
     component: () => import('../views/orderConfirmation/OrderConfirmation')
   },
   {
+    path: '/cartList',
+    name: 'CartList',
+    component: () => import('../views/cartList/CartList')
+  },
+  {
     path: '/orderList',
     name: 'OrderList',
     component: () => import('../views/orderList/OrderList')
+  },
+  {
+    path: '/personalCenter',
+    name: 'PersonalCenter',
+    component: () => import('../views/personalCenter/PersonalCenter')
   }
 ]
 

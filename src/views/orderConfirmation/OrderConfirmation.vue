@@ -145,7 +145,7 @@ export default {
   right: 0;
   bottom: 0;
   top: 0;
-  background-color: #eee;
+  background-color: #f8f8f8;
 }
 
 .top {

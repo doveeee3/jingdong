@@ -74,7 +74,7 @@ export default {
   bottom: 0.5rem;
   top: 0;
   right: 0;
-  background-color: #eee;
+  background-color: #f8f8f8;
 }
 
 .title {

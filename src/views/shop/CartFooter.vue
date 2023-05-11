@@ -130,7 +130,6 @@ export default {
     const shopId = route.params.id
     const showChart = ref(false)
     const handleCartShowChange = () => {
-      console.log(showChart.value)
       showChart.value = !showChart.value
     }
     const {
