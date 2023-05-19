@@ -115,20 +115,10 @@ const useOrderEffert = (shopId, showToast) => {
       })
       console.log(result)
       router.push({ name: 'OrderList' })
-      // const result = await post('/api/order', {
-      //   addressId: 1,
-      //   shopId,
-      //   shopName: shopName.value,
-      //   isCanceled,
-      //   products
-      // })
-      // if (result?.errno === 0) {
-      //   store.commit('cleanCartProducts', { shopId })
-      //   router.push({ name: 'OrderList' })
-      // }
     } catch (e) {
       showToast('请求失败')
     }
+    store.commit('cleanCartProducts', { shopId })
   }
 
   return { productList, shopName, price, handleOrderConfirm, mask, handleSubmitOrder }
