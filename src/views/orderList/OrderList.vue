@@ -28,28 +28,27 @@
 <script>
 import { reactive, toRefs } from 'vue'
 import Docker from '../../components/Docker.vue'
-import { get } from '@/utils/request'
+// import { get } from '@/utils/request'
+import order from '@/api/order'
 
 const useOrderListEffect = () => {
   const data = reactive({ list: [] })
   const getNearbyList = async () => {
-    const result = await get('/api/order')
-    console.log(result.data)
-    if (result?.errno === 0 && result?.data?.length) {
-      const orderList = result.data
-      orderList.forEach((order) => {
-        const products = order.products || []
-        let totalPrice = 0
-        let totalNumber = 0
-        products.forEach((productItem) => {
-          totalNumber += (productItem?.orderSales || 0)
-          totalPrice += ((productItem?.product?.price * productItem?.orderSales) || 0)
-        })
-        order.totalPrice = totalPrice
-        order.totalNumber = totalNumber
+    const result = await order()
+    console.log(result)
+    const orderList = result
+    orderList.forEach((order) => {
+      const products = order.products || []
+      let totalPrice = 0
+      let totalNumber = 0
+      products.forEach((productItem) => {
+        totalNumber += (productItem?.orderSales || 0)
+        totalPrice += ((productItem?.product?.price * productItem?.orderSales) || 0)
       })
-      data.list = result.data
-    }
+      order.totalPrice = totalPrice
+      order.totalNumber = totalNumber
+    })
+    data.list = result
   }
   getNearbyList()
   const { list } = toRefs(data)

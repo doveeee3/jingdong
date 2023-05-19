@@ -19,7 +19,7 @@ export default {
       { icon: '&#xe867;', text: '首页', to: { name: 'Home' } },
       { icon: '&#xe645;', text: '购物车', to: { name: 'CartList' } },
       { icon: '&#xe6ab;', text: '订单', to: { name: 'OrderList' } },
-      { icon: '&#xe65f;', text: '我的', to: { name: 'Home' } }
+      { icon: '&#xe65f;', text: '我的', to: { name: 'PersonalCenter' } }
     ]
     return { dockerList }
   }

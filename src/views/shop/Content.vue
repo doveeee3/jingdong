@@ -1,8 +1,8 @@
 <template>
   <div class="content">
     <div class="category">
-      <div :class="{ 'category__item': true, 'category__item--active': currentTab === item.tab }" v-for="item in categories"
-        :key="item.name" @click="() => handleTabClick(item.tab)">
+      <div :class="{ 'category__item': true, 'category__item--active': currentTab === item.tab }"
+        v-for="item in categories" :key="item.name" @click="() => handleTabClick(item.tab)">
         {{ item.name }}
       </div>
     </div>
@@ -32,8 +32,9 @@
 <script>
 import { reactive, ref, toRefs, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { get } from '../../utils/request'
+// import { get } from '../../utils/request'
 import { useStore } from 'vuex'
+import getProduct from '@/api/product'
 
 const categories = [
   { name: '全部商品', tab: 'all' },
@@ -54,12 +55,8 @@ const useTabEffect = () => {
 const useCurrentListEffect = (currentTab, shopId) => {
   const content = reactive({ list: [] })
   const getContentData = async () => {
-    const result = await get(`/api/shop/${shopId}/products`, {
-      tab: currentTab.value
-    })
-    if (result?.errno === 0 && result?.data?.length) {
-      content.list = result.data
-    }
+    const result = await getProduct(shopId, { tab: currentTab.value })
+    content.list = result
   }
 
   watchEffect(() => { getContentData() })
@@ -199,4 +196,5 @@ export default {
       }
     }
   }
-}</style>
+}
+</style>

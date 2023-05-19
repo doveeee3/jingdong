@@ -59,8 +59,9 @@
 import { computed, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import { post } from '../../utils/request'
+// import { post } from '../../utils/request'
 import Toast, { useToastEffect } from '../../components/Toast.vue'
+import orderConfirm from '@/api/orderComfirmation'
 const useOrderEffert = (shopId, showToast) => {
   const store = useStore()
   const cartCount = store.state.cartList
@@ -105,17 +106,26 @@ const useOrderEffert = (shopId, showToast) => {
       products.push({ id: parseInt(product._id, 10), num: product.count })
     }
     try {
-      const result = await post('/api/order', {
+      const result = await orderConfirm({
         addressId: 1,
         shopId,
         shopName: shopName.value,
         isCanceled,
         products
       })
-      if (result?.errno === 0) {
-        store.commit('cleanCartProducts', { shopId })
-        router.push({ name: 'OrderList' })
-      }
+      console.log(result)
+      router.push({ name: 'OrderList' })
+      // const result = await post('/api/order', {
+      //   addressId: 1,
+      //   shopId,
+      //   shopName: shopName.value,
+      //   isCanceled,
+      //   products
+      // })
+      // if (result?.errno === 0) {
+      //   store.commit('cleanCartProducts', { shopId })
+      //   router.push({ name: 'OrderList' })
+      // }
     } catch (e) {
       showToast('请求失败')
     }

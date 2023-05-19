@@ -15,20 +15,18 @@
 
 <script>
 import ShopInfo from '../../components/ShopInfo.vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { reactive, toRefs } from 'vue'
-import { get } from '../../utils/request'
 import Content from './Content.vue'
 import CartFooter from './CartFooter.vue'
+import shop from '@/api/shop'
 
 const useShopInfoEffect = () => {
   const route = useRoute()
   const data = reactive({ item: {} })
   const getItemData = async () => {
-    const result = await get(`/api/shop/${route.params.id}`)
-    if (result?.errno === 0 && result?.data) {
-      data.item = result.data
-    }
+    const result = await shop(route.params.id)
+    data.item = result
   }
   const { item } = toRefs(data)
   return { item, getItemData }

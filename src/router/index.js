@@ -53,6 +53,16 @@ const routes = [
     path: '/personalCenter',
     name: 'PersonalCenter',
     component: () => import('../views/personalCenter/PersonalCenter')
+  },
+  {
+    path: '/addressList',
+    name: 'AddressList',
+    component: () => import('../views/personalCenter/address/AddressList')
+  },
+  {
+    path: '/addAddress',
+    name: 'AddAddress',
+    component: () => import('../views/personalCenter/address/AddAddress')
   }
 ]
 
